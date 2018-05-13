@@ -3,9 +3,11 @@ package com.example.employee.restfulapi.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-public class Employee {
+public class Employee implements Serializable{
     @Id
     @GeneratedValue
     private Long id;
@@ -24,6 +26,18 @@ public class Employee {
         this.gender = gender;
         this.salary = salary;
         this.companyId = companyId;
+    }
+
+    public Employee(Long id, String name, Integer age, String gender, Integer salary, Long companyId) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.salary = salary;
+        this.companyId = companyId;
+    }
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Long getCompanyId() {
